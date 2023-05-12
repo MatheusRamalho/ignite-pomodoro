@@ -18,6 +18,7 @@ export const defaultTheme = {
         md: '0.375rem',
         base: '0.25rem',
         lg: '0.5rem',
+        full: '9999px',
     },
 
     color: {
