@@ -5,9 +5,7 @@ export const Countdown = () => {
         <CountdownContainer>
             <span> 0 </span>
             <span> 0 </span>
-            
             <CountdownSeparator> : </CountdownSeparator>
-
             <span> 0 </span>
             <span> 0 </span>
         </CountdownContainer>
