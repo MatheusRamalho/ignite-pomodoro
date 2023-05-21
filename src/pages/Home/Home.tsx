@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Play } from 'phosphor-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -18,7 +19,17 @@ const newCycleFormValidationSchema = zod.object({
 // Sempre que quiser referenciar uma variavel javascript no javascript, precisa usar o typeof
 type NewCycleFormDataProps = zod.infer<typeof newCycleFormValidationSchema>
 
+interface CycleProps {
+    id: string;
+    task: string;
+    minutesAmount: number;
+}
+
 export const Home = () => {
+    const [cycles, setCycles] = useState<CycleProps[]>([])
+    const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
+    const [amountSecondsPassed, setAmountSecondsPassed] = useState(0)
+
     const { register, handleSubmit, watch, reset } = useForm<NewCycleFormDataProps>({
         resolver: zodResolver(newCycleFormValidationSchema),
         defaultValues: {
@@ -28,12 +39,32 @@ export const Home = () => {
     });
 
     const handleCreateNewCycle = (data: NewCycleFormDataProps) => {
-        console.log(data)
+        const id = String(new Date().getTime())
+
+        const newCycle: CycleProps = {
+            id,
+            task: data.task,
+            minutesAmount: data.minutesAmount,
+        }
+
+        setCycles((state) => [...state, newCycle])
+        setActiveCycleId(id)
         reset()
     }
 
+    const activeCycle = cycles.find(cycle => cycle.id === activeCycleId)
+
+    const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
+    const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0
+
+    const minutesAmount = Math.floor(currentSeconds / 60)
+    const secondsAmount = currentSeconds % 60
+
+    const minutes = String(minutesAmount).padStart(2, '0')
+    const seconds = String(secondsAmount).padStart(2, '0')
+
     const task = watch('task')
-    const isSubmitDisabled = !task;
+    const isSubmitDisabled = !task
 
     return (
         <HomeContainer>
@@ -71,7 +102,7 @@ export const Home = () => {
                     <span> minutos. </span>
                 </FormContainer>
 
-                <Countdown />
+                <Countdown minutes={minutes} seconds={seconds} />
 
                 <Button
                     type="submit"
