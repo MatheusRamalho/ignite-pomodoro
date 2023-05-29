@@ -6,14 +6,18 @@ import { GlobalStyle } from './styles/global'
 
 import { Router } from './routers/Router'
 
+import { CyclesContextProvider } from './contexts/CyclesContext'
+
 export const App = () => {
 	return (
 		<ThemeProvider theme={defaultTheme}>
 			<GlobalStyle />
 
 			<BrowserRouter>
-				<Router />
+				<CyclesContextProvider>
+					<Router />
+				</CyclesContextProvider>
 			</BrowserRouter>
 		</ThemeProvider>
-	);
+	)
 }

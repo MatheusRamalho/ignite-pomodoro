@@ -3,14 +3,15 @@ import styled, { css } from 'styled-components'
 import { ButtonContainerProps } from './Button.types'
 
 const buttonVariants = {
-    primary: 'blue',
-    secondary: 'orange',
-    danger: 'red',
-    success: 'green'
+    primary: 'green-500',
+    secondary: 'red-500',
 }
 
 export const ButtonContainer = styled.button<ButtonContainerProps>`
-    /* ${props => { return css`background-color: ${buttonVariants[props.variant]}` }} */
+    /* ${props => {
+        return css`background-color: ${buttonVariants[props.variant]}`
+    }} */
+
     cursor: pointer;
 
     width: 100%;
@@ -35,4 +36,12 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
     &:not(:disabled):hover {
         background-color: ${props => props.theme.color['green-700']};
     }
-`;
+`
+
+export const StopCountdownButton = styled(ButtonContainer)`
+    background-color: ${props => props.theme.color['red-500']};
+
+    &:not(:disabled):hover {
+        background-color: ${props => props.theme.color['red-700']};
+    }
+`

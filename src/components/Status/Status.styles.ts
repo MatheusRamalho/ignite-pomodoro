@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import { STATUS_COLORS, StatusContainerProps } from "./Status.types";
+import { STATUS_COLORS, StatusContainerProps } from './Status.types'
 
 export const StatusContainer = styled.span<StatusContainerProps>`
     display: flex;

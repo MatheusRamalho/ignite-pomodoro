@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
     display: flex;
@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
     img {
         width: 2.75rem;
     }
-    
+
     nav {
         ul {
             list-style: none;

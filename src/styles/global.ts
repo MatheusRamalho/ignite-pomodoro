@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
     *, *::before, *::after {
@@ -23,4 +23,4 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: ${props => props.theme.font.regular};
         font-size: ${props => props.theme.font["text-base"]};
     }
-`;
+`

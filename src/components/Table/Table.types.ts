@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 
 export interface TableRootProps {
-    children: ReactNode;
+    children: ReactNode
 }
 
 export interface TableThProps {
-    name: string;
+    name: string
 }

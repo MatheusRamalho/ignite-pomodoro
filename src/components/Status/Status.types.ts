@@ -9,6 +9,6 @@ export interface StatusContainerProps {
 }
 
 export interface StatusProps {
-    name: 'Em andamento' | 'Interrompido' | 'Concluído';
+    name: 'Em andamento' | 'Interrompido' | 'Concluído'
     statusColor: keyof typeof STATUS_COLORS
 }
