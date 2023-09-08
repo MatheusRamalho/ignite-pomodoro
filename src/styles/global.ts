@@ -9,18 +9,18 @@ export const GlobalStyle = createGlobalStyle`
 
     :focus {
         outline: 0;
-        box-shadow: 0 0 0 2x ${props => props.theme.color["green-500"]};
+        box-shadow: 0 0 0 2x ${(props) => props.theme.color['green-500']};
     }
 
     body {
-        background-color: ${props => props.theme.color["gray-900"]};
-        color: ${props => props.theme.color["gray-300"]};
+        background-color: ${(props) => props.theme.color['gray-900']};
+        color: ${(props) => props.theme.color['gray-300']};
         -webkit-font-smoothing: antialiased;
     }
 
     body, input, textarea, button {
-        font-family: ${props => props.theme.font.text};
-        font-weight: ${props => props.theme.font.regular};
-        font-size: ${props => props.theme.font["text-base"]};
+        font-family: ${(props) => props.theme.font.text};
+        font-weight: ${(props) => props.theme.font.regular};
+        font-size: ${(props) => props.theme.font['text-base']};
     }
 `

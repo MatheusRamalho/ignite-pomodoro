@@ -22,7 +22,7 @@ export const defaultTheme = {
     },
 
     color: {
-        'white': '#FFFFFF',
+        white: '#FFFFFF',
         'green-300': '#00B37E',
         'green-500': '#00875F',
         'green-700': '#015F43',
@@ -38,5 +38,5 @@ export const defaultTheme = {
         'gray-700': '#202024',
         'gray-800': '#19191C',
         'gray-900': '#121214',
-    }
+    },
 }

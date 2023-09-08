@@ -12,7 +12,7 @@ export const StatusContainer = styled.span<StatusContainerProps>`
 
         width: 0.5rem;
         height: 0.5rem;
-        border-radius: ${props => props.theme.rounded.full};
-        background-color: ${props => props.theme.color[STATUS_COLORS[props.statusColor]]};
+        border-radius: ${(props) => props.theme.rounded.full};
+        background-color: ${(props) => props.theme.color[STATUS_COLORS[props.statusColor]]};
     }
 `

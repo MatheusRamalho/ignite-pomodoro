@@ -13,29 +13,29 @@ export const TableContainer = styled.div`
 
         th {
             padding: 1rem;
-            background-color: ${props => props.theme.color['gray-600']};
+            background-color: ${(props) => props.theme.color['gray-600']};
 
             text-align: left;
-            font-size: ${props => props.theme.font['text-md']};
-            color: ${props => props.theme.color['gray-100']};
+            font-size: ${(props) => props.theme.font['text-md']};
+            color: ${(props) => props.theme.color['gray-100']};
 
             &:first-child {
                 padding-left: 1.5rem;
-                border-top-left-radius: ${props => props.theme.rounded.lg};
+                border-top-left-radius: ${(props) => props.theme.rounded.lg};
             }
 
             &:last-child {
                 padding-right: 1.5rem;
-                border-top-right-radius: ${props => props.theme.rounded.lg};
+                border-top-right-radius: ${(props) => props.theme.rounded.lg};
             }
         }
 
         td {
             padding: 1rem;
-            border-top: 0.25rem solid ${props => props.theme.color['gray-800']};
-            background-color: ${props => props.theme.color['gray-700']};
+            border-top: 0.25rem solid ${(props) => props.theme.color['gray-800']};
+            background-color: ${(props) => props.theme.color['gray-700']};
 
-            font-size: ${props => props.theme.font['text-md']};
+            font-size: ${(props) => props.theme.font['text-md']};
             line-height: 160%;
 
             &:first-child {

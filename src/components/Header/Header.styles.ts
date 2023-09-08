@@ -28,17 +28,17 @@ export const HeaderContainer = styled.header`
                     align-items: center;
                     justify-content: center;
 
-                    color: ${props => props.theme.color["gray-100"]};
+                    color: ${(props) => props.theme.color['gray-100']};
 
                     border-top: 3px solid transparent;
                     border-bottom: 3px solid transparent;
 
                     &:hover {
-                        border-bottom-color: ${props => props.theme.color["green-500"]};
+                        border-bottom-color: ${(props) => props.theme.color['green-500']};
                     }
 
                     &.active {
-                        color: ${props => props.theme.color["green-500"]};
+                        color: ${(props) => props.theme.color['green-500']};
                     }
                 }
             }

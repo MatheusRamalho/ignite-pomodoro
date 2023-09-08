@@ -8,10 +8,7 @@ import logoIgnite from '../../assets/ignite-logo.svg'
 export const Header = () => {
     return (
         <HeaderContainer>
-            <img
-                src={logoIgnite}
-                alt=""
-            />
+            <img src={logoIgnite} alt="" />
 
             <nav>
                 <ul>

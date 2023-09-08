@@ -9,5 +9,5 @@ export const Table = {
     Head: TableHead,
     Body: TableBody,
     Th: TableTh,
-    Td: TableTd
+    Td: TableTd,
 }

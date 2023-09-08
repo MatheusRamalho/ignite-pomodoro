@@ -4,9 +4,7 @@ import { TableRootProps } from './Table.types'
 export const TableRoot = ({ children }: TableRootProps) => {
     return (
         <TableContainer>
-            <table>
-                {children}
-            </table>
+            <table>{children}</table>
         </TableContainer>
     )
 }

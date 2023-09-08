@@ -15,9 +15,10 @@ import { HomeContainer } from './styles'
 
 const newCycleFormValidationSchema = zod.object({
     task: zod.string().min(1, 'Informe a tarefa'),
-    minutesAmount: zod.number()
+    minutesAmount: zod
+        .number()
         .min(5, 'O ciclo precisa ser de no mínimo 5 minutos')
-        .max(60, 'O ciclo precisa ser de no máximo 60 minutos')
+        .max(60, 'O ciclo precisa ser de no máximo 60 minutos'),
 })
 
 // Sempre que quiser referenciar uma variavel javascript no javascript, precisa usar o typeof
@@ -46,10 +47,7 @@ export const Home = () => {
 
     return (
         <HomeContainer>
-            <form
-                id="pomodoroStartForm"
-                onSubmit={handleSubmit(handleCreateNewCycle)}
-            >
+            <form id="pomodoroStartForm" onSubmit={handleSubmit(handleCreateNewCycle)}>
                 <FormProvider {...newCycleForm}>
                     <NewCycleForm />
                 </FormProvider>
@@ -57,20 +55,12 @@ export const Home = () => {
                 <Countdown />
 
                 {activeCycle ? (
-                    <StopCountdownButton
-                        type="button"
-                        variant="secondary"
-                        onClick={interruptCurrentCycle}
-                    >
+                    <StopCountdownButton type="button" variant="secondary" onClick={interruptCurrentCycle}>
                         <HandPalm size={24} />
                         Interromper
                     </StopCountdownButton>
                 ) : (
-                    <Button
-                        type="submit"
-                        form="pomodoroStartForm"
-                        disabled={isSubmitDisabled}
-                    >
+                    <Button type="submit" form="pomodoroStartForm" disabled={isSubmitDisabled}>
                         <Play size={24} />
                         Começar
                     </Button>

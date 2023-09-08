@@ -15,13 +15,13 @@ interface CycleProps {
 }
 
 interface CycleContextProps {
-    cycles: CycleProps[],
+    cycles: CycleProps[]
     activeCycle: CycleProps | undefined
     activeCycleId: string | null
     amountSecondsPassed: number
     markCurrentCycleAsFinished: () => void
     setSecondsPassed: (seconds: number) => void
-    createNewCycle: (data: CreaterCycleProps) => void,
+    createNewCycle: (data: CreaterCycleProps) => void
     interruptCurrentCycle: () => void
 }
 
@@ -48,7 +48,7 @@ export const CyclesContextProvider = ({ children }: CyclesContextProviderProps) 
                 if (cycle.id === activeCycleId) {
                     return {
                         ...cycle,
-                        finishedDate: new Date()
+                        finishedDate: new Date(),
                     }
                 } else {
                     return cycle
@@ -79,7 +79,7 @@ export const CyclesContextProvider = ({ children }: CyclesContextProviderProps) 
                 if (cycle.id === activeCycleId) {
                     return {
                         ...cycle,
-                        interruptedDate: new Date()
+                        interruptedDate: new Date(),
                     }
                 } else {
                     return cycle
@@ -99,7 +99,7 @@ export const CyclesContextProvider = ({ children }: CyclesContextProviderProps) 
                 markCurrentCycleAsFinished,
                 setSecondsPassed,
                 createNewCycle,
-                interruptCurrentCycle
+                interruptCurrentCycle,
             }}
         >
             {children}

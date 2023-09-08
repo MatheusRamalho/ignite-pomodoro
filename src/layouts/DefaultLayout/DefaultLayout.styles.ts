@@ -6,8 +6,8 @@ export const DefaultLayoutContainer = styled.div`
     margin: 5rem auto;
     padding: 2.5rem;
 
-    border-radius: ${props => props.theme.rounded.lg};
-    background-color: ${props => props.theme.color["gray-800"]};
+    border-radius: ${(props) => props.theme.rounded.lg};
+    background-color: ${(props) => props.theme.color['gray-800']};
 
     display: flex;
     flex-direction: column;

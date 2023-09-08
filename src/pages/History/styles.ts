@@ -8,7 +8,7 @@ export const HistoryContainer = styled.main`
     padding: 3.5rem;
 
     h1 {
-        font-size: ${props => props.theme.font['text-xl']};
-        color: ${props => props.theme.color['gray-100']};
+        font-size: ${(props) => props.theme.font['text-xl']};
+        color: ${(props) => props.theme.color['gray-100']};
     }
 `

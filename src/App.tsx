@@ -9,15 +9,15 @@ import { Router } from './routers/Router'
 import { CyclesContextProvider } from './contexts/CyclesContext'
 
 export const App = () => {
-	return (
-		<ThemeProvider theme={defaultTheme}>
-			<GlobalStyle />
+    return (
+        <ThemeProvider theme={defaultTheme}>
+            <GlobalStyle />
 
-			<BrowserRouter>
-				<CyclesContextProvider>
-					<Router />
-				</CyclesContextProvider>
-			</BrowserRouter>
-		</ThemeProvider>
-	)
+            <BrowserRouter>
+                <CyclesContextProvider>
+                    <Router />
+                </CyclesContextProvider>
+            </BrowserRouter>
+        </ThemeProvider>
+    )
 }
