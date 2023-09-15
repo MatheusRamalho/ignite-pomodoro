@@ -32,18 +32,18 @@ export const History = () => {
                             <tr key={cycle.id}>
                                 <Table.Td> {cycle.task} </Table.Td>
                                 <Table.Td> {cycle.minutesAmount} minutos </Table.Td>
+
                                 <Table.Td>
                                     {' '}
-                                    {formatDistanceToNow(cycle.startDate, {
+                                    {formatDistanceToNow(new Date(cycle.startDate), {
                                         addSuffix: true,
                                         locale: ptBR,
                                     })}{' '}
                                 </Table.Td>
+
                                 <Table.Td>
                                     {cycle.finishedDate && <Status name="Concluído" statusColor="green" />}
-
                                     {cycle.interruptedDate && <Status name="Interrompido" statusColor="red" />}
-
                                     {!cycle.finishedDate && !cycle.interruptedDate && (
                                         <Status name="Em andamento" statusColor="yellow" />
                                     )}

@@ -15,7 +15,7 @@ export const Countdown = () => {
 
         if (activeCycle) {
             interval = setInterval(() => {
-                const secondsDifference = differenceInSeconds(new Date(), activeCycle.startDate)
+                const secondsDifference = differenceInSeconds(new Date(), new Date(activeCycle.startDate))
 
                 if (secondsDifference >= totalSeconds) {
                     markCurrentCycleAsFinished()
@@ -45,7 +45,7 @@ export const Countdown = () => {
         if (activeCycle) {
             document.title = `Ignite Pomodoro - ${minutes}:${seconds}`
         }
-    }, [minutes, seconds])
+    }, [minutes, seconds, activeCycle])
 
     return (
         <CountdownContainer>

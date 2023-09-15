@@ -8,8 +8,8 @@ import { CyclesContext } from '../../contexts/CyclesContext'
 
 import { Button } from '../../components/Button'
 import { StopCountdownButton } from '../../components/Button/Button.styles'
-import { NewCycleForm } from './components/NewCycleForm'
-import { Countdown } from './components/Countdown'
+import { NewCycleForm } from './modules/NewCycleForm'
+import { Countdown } from './modules/Countdown'
 
 import { HomeContainer } from './styles'
 

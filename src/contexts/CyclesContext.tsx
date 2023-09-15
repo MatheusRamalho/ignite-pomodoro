@@ -1,92 +1,97 @@
-import { ReactNode, createContext, useState } from 'react'
+import { ReactNode, createContext, useEffect, useReducer, useState } from 'react'
 
-interface CreaterCycleProps {
+import { Cycle } from '../types/Cycle'
+
+import { cyclesReducer } from '../reducers/cycles/reducer'
+import {
+    addNewCycleAction,
+    interruptCurrentCycleAction,
+    markCurrentCycleAsFinishedAction,
+} from '../reducers/cycles/actions'
+import { differenceInSeconds } from 'date-fns'
+
+const CYCLES_STATE_LOCAL_STORAGE = '@ignite-pomodoro:cycles-state'
+
+interface CreateCycleData {
     task: string
     minutesAmount: number
-}
-
-interface CycleProps {
-    id: string
-    task: string
-    minutesAmount: number
-    startDate: Date
-    interruptedDate?: Date
-    finishedDate?: Date
 }
 
 interface CycleContextProps {
-    cycles: CycleProps[]
-    activeCycle: CycleProps | undefined
+    cycles: Cycle[]
+    activeCycle: Cycle | undefined
     activeCycleId: string | null
     amountSecondsPassed: number
     markCurrentCycleAsFinished: () => void
     setSecondsPassed: (seconds: number) => void
-    createNewCycle: (data: CreaterCycleProps) => void
+    createNewCycle: (data: CreateCycleData) => void
     interruptCurrentCycle: () => void
 }
+
+export const CyclesContext = createContext({} as CycleContextProps)
 
 interface CyclesContextProviderProps {
     children: ReactNode
 }
 
-export const CyclesContext = createContext({} as CycleContextProps)
-
 export const CyclesContextProvider = ({ children }: CyclesContextProviderProps) => {
-    const [cycles, setCycles] = useState<CycleProps[]>([])
-    const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
-    const [amountSecondsPassed, setAmountSecondsPassed] = useState(0)
+    const [cyclesState, dispatch] = useReducer(
+        cyclesReducer,
+        {
+            cycles: [],
+            activeCycleId: null,
+        },
+        (initialState) => {
+            const storadeStateAsJSON = localStorage.getItem(CYCLES_STATE_LOCAL_STORAGE)
 
+            if (storadeStateAsJSON) {
+                return JSON.parse(storadeStateAsJSON)
+            }
+
+            return initialState
+        },
+    )
+
+    const { cycles, activeCycleId } = cyclesState
     const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
+
+    const [amountSecondsPassed, setAmountSecondsPassed] = useState(() => {
+        if (activeCycle) {
+            return differenceInSeconds(new Date(), new Date(activeCycle.startDate))
+        }
+
+        return 0
+    })
+
+    useEffect(() => {
+        const stateJSON = JSON.stringify(cyclesState)
+        localStorage.setItem(CYCLES_STATE_LOCAL_STORAGE, stateJSON)
+    }, [cyclesState])
 
     const setSecondsPassed = (seconds: number) => {
         setAmountSecondsPassed(seconds)
     }
 
     const markCurrentCycleAsFinished = () => {
-        setCycles((state) =>
-            state.map((cycle) => {
-                if (cycle.id === activeCycleId) {
-                    return {
-                        ...cycle,
-                        finishedDate: new Date(),
-                    }
-                } else {
-                    return cycle
-                }
-            }),
-        )
+        dispatch(markCurrentCycleAsFinishedAction())
     }
 
-    const createNewCycle = (data: CreaterCycleProps) => {
+    const createNewCycle = (data: CreateCycleData) => {
         const id = String(new Date().getTime())
 
-        const newCycle: CycleProps = {
+        const newCycle: Cycle = {
             id,
             task: data.task,
             minutesAmount: data.minutesAmount,
             startDate: new Date(),
         }
 
-        // forma correta de modificar a state quando a mesma depende do seu valor anterior...
-        setCycles((state) => [...state, newCycle])
-        setActiveCycleId(id)
+        dispatch(addNewCycleAction(newCycle))
         setAmountSecondsPassed(0)
     }
 
     const interruptCurrentCycle = () => {
-        setCycles((state) =>
-            state.map((cycle) => {
-                if (cycle.id === activeCycleId) {
-                    return {
-                        ...cycle,
-                        interruptedDate: new Date(),
-                    }
-                } else {
-                    return cycle
-                }
-            }),
-        )
-        setActiveCycleId(null)
+        dispatch(interruptCurrentCycleAction())
     }
 
     return (
