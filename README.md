@@ -56,7 +56,7 @@ Você pode visualizar o layout do projeto através [desse link](). É necessári
 
 ## 🚀 Deploy
 
-Você pode visualizar o deploy do projeto na vercel através [desse link](https://trinomate.vercel.app/).
+Você pode visualizar o deploy do projeto na vercel através [desse link](https://ignite-pomodoro-mat.vercel.app).
 
 <br />
 
@@ -107,14 +107,6 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
         <img src="https://avatars.githubusercontent.com/u/15633283?v=4" width="100px;" alt="Foto do Matheus Silva no GitHub"/><br>
         <sub>
           <b>Matheus Silva</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/ramonpego">
-        <img src="https://avatars.githubusercontent.com/u/6185157?v=4" width="100px;" alt="Foto do Ramon Pêgo no GitHub"/><br>
-        <sub>
-          <b>Ramon Pêgo</b>
         </sub>
       </a>
     </td>
