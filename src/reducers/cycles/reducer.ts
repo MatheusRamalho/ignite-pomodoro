@@ -1,6 +1,6 @@
 import { produce } from 'immer'
 
-import { Cycle } from '@/types/cycle'
+import { Cycle } from '@/types/Cycle'
 
 import { CyclesActionTypes } from './actions'
 

@@ -9,7 +9,7 @@ import {
 } from 'react'
 import { differenceInSeconds } from 'date-fns'
 
-import { Cycle } from '@/types/cycle'
+import { Cycle } from '@/types/Cycle'
 
 import { cyclesReducer } from '@/reducers/cycles/reducer'
 import {

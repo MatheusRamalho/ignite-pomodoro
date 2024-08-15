@@ -1,4 +1,4 @@
-import { Cycle } from '@/types/cycle'
+import { Cycle } from '@/types/Cycle'
 
 export enum CyclesActionTypes {
     ADD_CYCLE = 'ADD_CYCLE',
