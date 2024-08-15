@@ -13,7 +13,7 @@ import {
     TableBody,
     TableTd,
     TableRow,
-} from '@/components/table'
+} from '@/components/Table'
 
 export default function History() {
     const { cycles } = useContext(CyclesContext)
