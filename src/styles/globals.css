@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2x #00875F;
+}
+
+input#task {
+    &::-webkit-calendar-picker-indicator {
+        display: none !important;
+    }
+}

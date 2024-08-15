@@ -1,14 +1,22 @@
-import { ReactNode, createContext, useEffect, useReducer, useState } from 'react'
+'use client'
 
-import { Cycle } from '../types/Cycle'
+import {
+    ReactNode,
+    createContext,
+    useEffect,
+    useReducer,
+    useState,
+} from 'react'
+import { differenceInSeconds } from 'date-fns'
 
-import { cyclesReducer } from '../reducers/cycles/reducer'
+import { Cycle } from '@/types/cycle'
+
+import { cyclesReducer } from '@/reducers/cycles/reducer'
 import {
     addNewCycleAction,
     interruptCurrentCycleAction,
     markCurrentCycleAsFinishedAction,
-} from '../reducers/cycles/actions'
-import { differenceInSeconds } from 'date-fns'
+} from '@/reducers/cycles/actions'
 
 const CYCLES_STATE_LOCAL_STORAGE = '@ignite-pomodoro:cycles-state'
 
@@ -34,7 +42,9 @@ interface CyclesContextProviderProps {
     children: ReactNode
 }
 
-export const CyclesContextProvider = ({ children }: CyclesContextProviderProps) => {
+export function CyclesContextProvider({
+    children,
+}: CyclesContextProviderProps) {
     const [cyclesState, dispatch] = useReducer(
         cyclesReducer,
         {
@@ -42,7 +52,13 @@ export const CyclesContextProvider = ({ children }: CyclesContextProviderProps) 
             activeCycleId: null,
         },
         (initialState) => {
-            const storadeStateAsJSON = localStorage.getItem(CYCLES_STATE_LOCAL_STORAGE)
+            let storadeStateAsJSON
+
+            if (typeof window !== 'undefined') {
+                storadeStateAsJSON = localStorage.getItem(
+                    CYCLES_STATE_LOCAL_STORAGE,
+                )
+            }
 
             if (storadeStateAsJSON) {
                 return JSON.parse(storadeStateAsJSON)
@@ -57,7 +73,10 @@ export const CyclesContextProvider = ({ children }: CyclesContextProviderProps) 
 
     const [amountSecondsPassed, setAmountSecondsPassed] = useState(() => {
         if (activeCycle) {
-            return differenceInSeconds(new Date(), new Date(activeCycle.startDate))
+            return differenceInSeconds(
+                new Date(),
+                new Date(activeCycle.startDate),
+            )
         }
 
         return 0
@@ -68,15 +87,15 @@ export const CyclesContextProvider = ({ children }: CyclesContextProviderProps) 
         localStorage.setItem(CYCLES_STATE_LOCAL_STORAGE, stateJSON)
     }, [cyclesState])
 
-    const setSecondsPassed = (seconds: number) => {
+    function setSecondsPassed(seconds: number) {
         setAmountSecondsPassed(seconds)
     }
 
-    const markCurrentCycleAsFinished = () => {
+    function markCurrentCycleAsFinished() {
         dispatch(markCurrentCycleAsFinishedAction())
     }
 
-    const createNewCycle = (data: CreateCycleData) => {
+    function createNewCycle(data: CreateCycleData) {
         const id = String(new Date().getTime())
 
         const newCycle: Cycle = {
@@ -90,7 +109,7 @@ export const CyclesContextProvider = ({ children }: CyclesContextProviderProps) 
         setAmountSecondsPassed(0)
     }
 
-    const interruptCurrentCycle = () => {
+    function interruptCurrentCycle() {
         dispatch(interruptCurrentCycleAction())
     }
 

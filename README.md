@@ -1,50 +1,79 @@
-<h1 align="center"> Ignite pomodoro </h1>
+# IGNITE POMODORO
 
-<p align="center">
- projeto da rocketseat proposto no curso do Ignite
-</p>
+<br />
 
-<p align="center">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-licença">Licença</a>
-</p>
+![thumbnail](.github/thumbnail.jpg?style=flat)
 
-<p align="center">
-  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
-</p>
+<br />
 
-<br>
 
-<p align="center">
-  <img alt="Preview do projeto" src=".github/preview.png" width="100%">
-</p>
+## 📌 Tópicos
 
-## 🚀 Tecnologias
+- [Descrição do projeto](#-projeto)
+- [Stack](#-stack)
+- [Layout da Aplicação](#-layout)
+- [Deploy da Aplicação](#-deploy)
+- [Licença](#-licença)
+- [Desenvolvedores e contribuintes](#-Desenvolvedores)
 
-Esse projeto foi desenvolvido com as seguintes tecnologias:
+<br />
 
-- Vite
+## 💡 Projeto
+
+Projeto da rocketseat proposto no curso de React da Rocktseat. Um Pomodoro onde você seta um tempo e da um nome para esse timer.
+Tambem possui uma página de histórico.
+
+<br />
+
+## ⭐ Stack
+
 - React
-- TypeScript
-- Styled-components
+- Next
+- Typescript
+- Tailwind
 - Git
 - Github
+- Vercel
 
-## 💻 Projeto
-
-Um sistema de pomodoro, com tela do pomodoro e tela de listagem dos pomodoros criados, juntamente com os status de cada um.
+<br />
 
 ## 🔖 Layout
 
-Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/community/file/1127351821076435124).
+Você pode visualizar o layout do projeto através [desse link](). É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
 
-## :memo: Licença
+<br />
 
-Esse projeto está sob a licença MIT.
+## 🚀 Deploy
 
----
+Você pode visualizar o deploy do projeto na vercel através [desse link](https://trinomate.vercel.app/).
 
-Projeto proposto pela Rocketseat <br/>
-by Matheus Ramalho - [matheusramalho.dev](matheusramalho.dev)
+<br />
+
+## 📝 Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+<br />
+
+## 🧠 Desenvolvedores
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/MatheusRamalho">
+        <img src="https://avatars.githubusercontent.com/u/15633283?v=4" width="100px;" alt="Foto do Matheus Silva no GitHub"/><br>
+        <sub>
+          <b>Matheus Silva</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/ramonpego">
+        <img src="https://avatars.githubusercontent.com/u/6185157?v=4" width="100px;" alt="Foto do Ramon Pêgo no GitHub"/><br>
+        <sub>
+          <b>Ramon Pêgo</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>

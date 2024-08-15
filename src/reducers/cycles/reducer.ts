@@ -1,6 +1,6 @@
 import { produce } from 'immer'
 
-import { Cycle } from '../../types/Cycle'
+import { Cycle } from '@/types/cycle'
 
 import { CyclesActionTypes } from './actions'
 
@@ -9,6 +9,7 @@ interface CyclesState {
     activeCycleId: string | null
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const cyclesReducer = (state: CyclesState, action: any) => {
     switch (action.type) {
         case CyclesActionTypes.ADD_CYCLE: {
@@ -82,7 +83,6 @@ export const cyclesReducer = (state: CyclesState, action: any) => {
 
             /**
              * SEM IMMER
-
                 return {
                     ...state,
                     cycles: state.cycles.map((cycle) => {
