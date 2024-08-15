@@ -29,7 +29,7 @@ export default function RootLayout({
                 className={`${roboto.className} bg-gray-900 text-gray-300 antialiased`}
             >
                 <CyclesContextProvider>
-                    <div className="max-w-[74rem] h-[calc(100vh-10rem)] mx-auto my-20 p-10 rounded-lg bg-gray-800 flex flex-col">
+                    <div className="max-w-[74rem] min-h-[calc(100vh-10rem)] mx-auto my-20 p-10 rounded-lg bg-gray-800 flex flex-col">
                         <Header />
                         {children}
                     </div>
