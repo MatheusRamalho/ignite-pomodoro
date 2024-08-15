@@ -5,7 +5,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
-import { CyclesContext } from '@/contexts/cyclesContext'
+import { CyclesContext } from '@/contexts/CyclesContext'
 import { Button } from '@/components/button'
 import { Countdown } from './modules/countdown'
 import { NewCycleForm } from './modules/new-cycle-form'

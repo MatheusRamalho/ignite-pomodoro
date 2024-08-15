@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale/pt-BR'
 
-import { CyclesContext } from '@/contexts/cyclesContext'
+import { CyclesContext } from '@/contexts/CyclesContext'
 import { Status } from '@/components/status'
 import {
     TableRoot,

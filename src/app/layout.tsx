@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 
 import '@/styles/globals.css'
-import { CyclesContextProvider } from '@/contexts/cyclesContext'
+import { CyclesContextProvider } from '@/contexts/CyclesContext'
 import { Header } from '@/components/header'
 
 const roboto = Roboto({
